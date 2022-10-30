@@ -33,6 +33,9 @@
           height="57"
         />
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="alert alert-danger" th:if="${param.error}" role="alert">
+          Invalid username or password!
+        </div>
         <div class="form-floating">
           <input
             type="text"

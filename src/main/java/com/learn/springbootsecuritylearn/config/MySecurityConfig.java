@@ -41,7 +41,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin() // This activates form based login
                 .loginPage("/signin") // This can be used to customize the signin url
-                .loginProcessingUrl("/dologin");
+                .loginProcessingUrl("/dologin")
+                .and()
+                .logout()
+                .logoutUrl("/dologout") // requires a "post" request to this url to do logout
+                .logoutSuccessUrl("/signin");
 
     }
 
