@@ -17,11 +17,13 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
      * authentication.
      * In this case we are using "basic authentication"
      * which is not recommended in production environments
+     * except "/home" route all other routes are secured
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/public/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -44,12 +46,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("normal_user");
         // We can create multiple users by creating a seperate instance of
         // "auth" with different username and password
-
-        // auth
-        // .inMemoryAuthentication()
-        // .withUser("chetna")
-        // .password("5678")
-        // .roles("admin_user");
+        auth
+                .inMemoryAuthentication()
+                .withUser("chetna")
+                .password("5678")
+                .roles("admin_user");
     }
 
     /**
