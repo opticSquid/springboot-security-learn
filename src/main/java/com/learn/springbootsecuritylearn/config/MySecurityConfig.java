@@ -18,10 +18,18 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
      * In this case we are using "basic authentication"
      * which is not recommended in production environments
      * except "/home" route all other routes are secured
+     * 
+     * Normally the application is CSRF protected so, non-browser
+     * clients like Postman can not do post or put request
+     * or basically no request is allowed which can alter or delete data
+     * to disable CSRF you have to do it manually
+     * 
+     * CORS is also turned on, so you need to disable to
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                // .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/public/**").hasRole("normal_user")
                 .antMatchers("/users/**").hasRole("admin_user")
