@@ -31,6 +31,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 // .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/signin").permitAll()
                 .antMatchers("/public/**").hasRole("normal_user")
                 .antMatchers("/users/**").hasRole("admin_user")
                 .anyRequest()
@@ -38,8 +39,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .and()
-                .formLogin(); // This activates form based login
-        // .loginPage("/signin"); This can be used to customize the signin url
+                .formLogin() // This activates form based login
+                .loginPage("/signin") // This can be used to customize the signin url
+                .loginProcessingUrl("/dologin");
 
     }
 

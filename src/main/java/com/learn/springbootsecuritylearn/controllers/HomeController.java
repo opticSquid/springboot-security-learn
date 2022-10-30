@@ -12,10 +12,10 @@ public class HomeController {
         return "this is home page";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "this is login page";
-    }
+    // @GetMapping("/login")
+    // public String login() {
+    // return "this is login page";
+    // }
 
     @GetMapping("/register")
     public String register() {
