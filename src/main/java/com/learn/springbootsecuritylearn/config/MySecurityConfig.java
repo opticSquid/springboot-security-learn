@@ -36,7 +36,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic();
+                .httpBasic()
+                .and()
+                .formLogin(); // This activates form based login
 
     }
 
@@ -58,7 +60,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("chetna")
-                .password("5678")
+                .password(this.passwordEncoder().encode("5678"))
                 .roles("admin_user");
     }
 
