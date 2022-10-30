@@ -39,6 +39,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .formLogin(); // This activates form based login
+        // .loginPage("/signin"); This can be used to customize the signin url
 
     }
 
