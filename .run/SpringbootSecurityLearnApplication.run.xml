@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringbootSecurityLearnApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="springboot-security-learn" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.learn.springbootsecuritylearn.SpringbootSecurityLearnApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
